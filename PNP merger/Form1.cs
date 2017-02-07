@@ -181,15 +181,12 @@ namespace PNP_merger
             //string[] componentDetails = new string[6];
             for (int i = 0; i < dataGridView1.RowCount && dataGridView1[0, i].Value != null; i++)
             {
-                if (componentFound)
-                {
-                    componentMissing.Add((dataGridView1[0, i].Value).ToString());
-                }
-                componentFound = false;
+
+                componentFound = false;//flag to check if the component is missing
 
                 for (int j = 0; j < dataGridView2.RowCount && dataGridView2[0, j].Value != null; j++)
                 {
-                    if (((dataGridView1[0, i].Value).ToString()) == ((dataGridView2[0, j].Value).ToString())) // if a component in the BOM matches a component in the PNP file
+                    if (((dataGridView1[0, i].Value).ToString()) == ((dataGridView2[0, j].Value).ToString())) // if a component in the BOM matches a component in the PNP file, match using ref des
                     {
                         string[] componentDetails = new string[6];
                         componentDetails[0] = (dataGridView1[0, i].Value).ToString(); //ref des
@@ -198,7 +195,7 @@ namespace PNP_merger
                         componentDetails[3] = (dataGridView2[3, j].Value).ToString();//z
                         componentDetails[4] = (dataGridView2[4, j].Value).ToString();//top or bot
                         componentDetails[5] = (dataGridView1[1, i].Value).ToString();//description
-                        if (componentDetails[4][0].Equals('t') || componentDetails[4][0].Equals('T'))
+                        if (componentDetails[4][0].Equals('t') || componentDetails[4][0].Equals('T'))//checks if the component is top or bot side
                         {
                             componentTop.Add(componentDetails);
                         }
@@ -209,14 +206,39 @@ namespace PNP_merger
                         componentFound = true;
                     }
                 }
+                if (componentFound==false)// if a component is missing, add it to the "missing" arraylist
+                {
+                    componentMissing.Add((dataGridView1[0, i].Value).ToString());
+                }
+            }// end of matching components
 
-                //if (componentNotFound)
-                //{
-                //    componentDetails[0] = (dataGridView1[0, i].Value).ToString(); //ref des
-                //    componentMissing.Add(componentDetails);
-                //}
+            System.IO.StreamWriter file = new System.IO.StreamWriter(@"c:\\Users\Public\top.txt");
+            foreach (string[] componentDetails in componentTop)
+            {
+                for(int i=0;i<6;i++)
+                file.Write(componentDetails[i]+"\t");
+                file.Write("\r\n");
             }
+            file.Close();
 
+            System.IO.StreamWriter file2 = new System.IO.StreamWriter(@"c:\\Users\Public\bot.txt");
+            foreach (string[] componentDetails in componentBot)
+            {
+                for (int i = 0; i < 6; i++)
+                file2.Write(componentDetails[i] + "\t");
+                file2.Write("\r\n");
+            }
+            file2.Close();
+
+            System.Diagnostics.Process.Start("explorer.exe", @"C:\Users\Public");
+
+            if (componentMissing.Count != 0)
+            {
+                String messages=null;
+                for (int i = 0; i < componentMissing.Count; i++)
+                    messages += componentMissing[i].ToString()+ "  ";
+                MessageBox.Show(messages, "Missing components");
+            }
         }
     }
 }

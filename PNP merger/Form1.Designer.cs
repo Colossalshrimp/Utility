@@ -42,17 +42,17 @@
             this.countText = new System.Windows.Forms.TextBox();
             this.Count = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.Ref_des = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.X = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Y = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Z = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tOrB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countText2 = new System.Windows.Forms.TextBox();
             this.Count2 = new System.Windows.Forms.Label();
             this.count2Btn = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.Ref_des = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.X = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Y = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Z = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tOrB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -111,8 +111,8 @@
             // 
             this.mergeToolStripMenuItem.Enabled = false;
             this.mergeToolStripMenuItem.Name = "mergeToolStripMenuItem";
-            this.mergeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.mergeToolStripMenuItem.Text = "Merge";
+            this.mergeToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.mergeToolStripMenuItem.Text = "Merge and save";
             this.mergeToolStripMenuItem.Click += new System.EventHandler(this.mergeToolStripMenuItem_Click);
             // 
             // dataGridView1
@@ -179,6 +179,36 @@
             this.dataGridView2.Size = new System.Drawing.Size(389, 442);
             this.dataGridView2.TabIndex = 8;
             // 
+            // Ref_des
+            // 
+            this.Ref_des.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Ref_des.HeaderText = "Reference designator";
+            this.Ref_des.Name = "Ref_des";
+            // 
+            // X
+            // 
+            this.X.HeaderText = "X";
+            this.X.Name = "X";
+            this.X.Width = 60;
+            // 
+            // Y
+            // 
+            this.Y.HeaderText = "Y";
+            this.Y.Name = "Y";
+            this.Y.Width = 60;
+            // 
+            // Z
+            // 
+            this.Z.HeaderText = "Z";
+            this.Z.Name = "Z";
+            this.Z.Width = 60;
+            // 
+            // tOrB
+            // 
+            this.tOrB.HeaderText = "Top/Bot";
+            this.tOrB.Name = "tOrB";
+            this.tOrB.Width = 60;
+            // 
             // countText2
             // 
             this.countText2.Location = new System.Drawing.Point(799, 454);
@@ -239,40 +269,10 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1000, 480);
+            this.tabPage2.Size = new System.Drawing.Size(850, 480);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Checker";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // Ref_des
-            // 
-            this.Ref_des.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Ref_des.HeaderText = "Reference designator";
-            this.Ref_des.Name = "Ref_des";
-            // 
-            // X
-            // 
-            this.X.HeaderText = "X";
-            this.X.Name = "X";
-            this.X.Width = 60;
-            // 
-            // Y
-            // 
-            this.Y.HeaderText = "Y";
-            this.Y.Name = "Y";
-            this.Y.Width = 60;
-            // 
-            // Z
-            // 
-            this.Z.HeaderText = "Z";
-            this.Z.Name = "Z";
-            this.Z.Width = 60;
-            // 
-            // tOrB
-            // 
-            this.tOrB.HeaderText = "Top/Bot";
-            this.tOrB.Name = "tOrB";
-            this.tOrB.Width = 60;
             // 
             // Form1
             // 
